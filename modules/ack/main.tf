@@ -20,8 +20,10 @@ resource "alicloud_cs_kubernetes_node_pool" "multi_az_nodes" {
   system_disk_size     = 40
 
   desired_size         = 2
-  min_size             = 2
-  max_size             = 10
-
   password             = var.password
+
+  scaling_config {
+    min_size = 2
+    max_size = 10
+  }
 }
